@@ -12,7 +12,7 @@ This project is a single-page application for an e-commerce product dashboard th
 
 ## Installation
 
-1. Clone this repository.
+1. Clone this repository - git checkout -b master https://github.com/Tina0520/ecommerce.git
 2. Run `npm install` to install the dependencies.
 3. Run `ng serve` to start the development server.
 4. Open `http://localhost:4200/` in your browser.
