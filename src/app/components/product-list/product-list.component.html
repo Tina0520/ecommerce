@@ -1,0 +1,90 @@
+<!-- Display error message if an error occurs during product fetching -->
+<div *ngIf="isError" class="error-message">
+  <mat-icon>error</mat-icon>
+  <!-- User-friendly message informing the user about the failure -->
+  <span>Failed to load products. Please try again later.</span>
+</div>
+
+<!-- Display loading message if data is being loaded -->
+<div *ngIf="isLoading" class="loading-message">
+  <!-- Optional spinner (commented out here) to indicate loading state -->
+  <!-- <mat-spinner></mat-spinner> -->
+  <!-- Inform the user that products are being loaded -->
+  <span>Loading...</span>
+</div>
+<!-- Filter Icon -->
+<div class="filter-icon-container">
+  <button
+    title="Appy Filters"
+    class="filter-icon"
+    aria-label="Filter"
+    (click)="isDialogVisible = true"
+  >
+    <!-- Filter Icon SVG -->
+    <svg
+      fill="#000000"
+      version="1.1"
+      id="Capa_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="800px"
+      height="800px"
+      viewBox="0 0 971.986 971.986"
+      xml:space="preserve"
+    >
+      <g>
+        <path
+          d="M370.216,459.3c10.2,11.1,15.8,25.6,15.8,40.6v442c0,26.601,32.1,40.101,51.1,21.4l123.3-141.3
+		c16.5-19.8,25.6-29.601,25.6-49.2V500c0-15,5.7-29.5,15.8-40.601L955.615,75.5c26.5-28.8,6.101-75.5-33.1-75.5h-873
+		c-39.2,0-59.7,46.6-33.1,75.5L370.216,459.3z"
+        />
+      </g>
+    </svg>
+  </button>
+</div>
+
+<!-- Filter section to allow users to filter and sort products -->
+<app-filter-dialog
+  [isDialogVisible]="isDialogVisible"
+  (applyFilters)="filterProducts($event)"
+  (closeDialogEmit)="isDialogVisible = false"
+  #filterDialog
+>
+</app-filter-dialog>
+
+<!-- Product list display section -->
+<div class="product-list" *ngIf="filteredProducts">
+  <!-- Loop through filtered products and display them using the product-item component -->
+  <div
+    *ngFor="let product of filteredProducts | loadMore : dataNumberToShow"
+    class="product-item-container"
+  >
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>
+<div class="load-more-div">
+  <button
+    *ngIf="
+      filteredProducts.length && filteredProducts.length > dataNumberToShow
+    "
+    mat-button
+    class="load-more-btn"
+    (click)="dataNumberToShow = dataNumberToShow + 5"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="feather feather-refresh-cw"
+    >
+      <path d="M23 4v6h-6"></path>
+      <path d="M1 20v-6h6"></path>
+      <path d="M12 2a10 10 0 1 1-10 10A10 10 0 0 1 12 2z"></path>
+    </svg>
+    Load More
+  </button>
+</div>

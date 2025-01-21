@@ -1,0 +1,60 @@
+<div class="filter-dialog-overlay" *ngIf="isDialogVisible">
+  <div class="filter-dialog">
+    <div class="popup-header">
+      <span>Filters</span>
+      <button class="close-btn" aria-label="Close" (click)="closeDialog()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="filters">
+      <!-- Category Filter Section -->
+      <div class="filter-group">
+        <label for="category">Category</label>
+        <select
+          id="category"
+          [(ngModel)]="selectedCategory"
+          (change)="filterProducts()"
+        >
+          <option value="">All Categories</option>
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Price Range Filter Section -->
+      <div class="filter-group">
+        <label for="price-range">Price Range</label>
+        <div class="price-slider">
+          <input
+            type="range"
+            id="min-price"
+            min="0"
+            max="1000"
+            step="10"
+            [(ngModel)]="priceRange.min"
+            (input)="filterProducts()"
+          />
+        </div>
+        <div class="price-display">
+          Price: {{ priceRange.min }} - {{ priceRange.max }}
+        </div>
+      </div>
+
+      <!-- Sort By Filter Section -->
+      <div class="filter-group">
+        <label for="sort-by">Sort By</label>
+        <select
+          id="sort-by"
+          [(ngModel)]="selectedSort"
+          (change)="filterProducts()"
+        >
+          <option value="price-low-to-high">Price: Low to High</option>
+          <option value="price-high-to-low">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

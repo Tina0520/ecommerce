@@ -1,0 +1,92 @@
+/* filter-dialog.component.scss */
+.filter-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.filter-dialog {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.filter-group select,
+.filter-group input[type="range"] {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.price-display {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Close button */
+.close-btn {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.close-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #333;
+}
+
+.close-btn:focus {
+  outline: none;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0px 20px 0px;
+
+  span {
+    padding: 2px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+}

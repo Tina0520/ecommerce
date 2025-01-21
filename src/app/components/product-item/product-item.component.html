@@ -1,0 +1,36 @@
+<mat-card class="product-card">
+  <mat-card-header>
+    <!-- Product image with lazy loading for performance improvement -->
+    <img
+      mat-card-avatar
+      [src]="product?.image" 
+      alt="product"
+      class="product-image"
+      loading="lazy"  
+    />
+    
+    <!-- Product title with truncation applied if the title is too long -->
+    <mat-card-title *ngIf="product" [title]="product.title">
+      {{ product.title | truncate:30 }}  <!-- Truncate long titles to 30 characters -->
+    </mat-card-title>
+    
+    <!-- Product price displayed in currency format -->
+    <mat-card-subtitle>
+      {{ product?.price | currency }}  <!-- Format the product price as currency -->
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Product category displayed under the header -->
+    <p class="product-category" *ngIf="product">{{ product.category | titlecase }}</p>
+    
+    <!-- View Details button to open the modal or navigate to details page -->
+    <button *ngIf="product"
+      mat-button 
+      class="view-details-button" 
+      (click)="viewDetails(product)" 
+    >
+      View Details
+    </button>
+  </mat-card-content>
+</mat-card>

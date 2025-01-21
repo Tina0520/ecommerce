@@ -1,0 +1,79 @@
+.product-card {
+  /* Positioning and transition properties for smooth interaction effects */
+  position: relative;  /* Relative positioning to allow child elements to be positioned accordingly */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transitions for hover effects */
+  border-radius: 8px;  /* Rounded corners for the product card */
+  overflow: hidden;  /* Ensure content stays within the card bounds */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect to make the card stand out */
+  
+  /* Hover effect to elevate the card and make it more interactive */
+  &:hover {
+    transform: translateY(-5px);  /* Lift the card slightly when hovered */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Increase shadow to simulate elevation */
+  }
+  
+  /* Styling for the card header */
+  mat-card-header {
+    padding: 20px;  /* Padding for spacing inside the header */
+    background-color: #f1f1f1;  /* Light grey background for the header */
+  }
+
+  /* Styling for the product image inside the header */
+  .product-image {
+    height: 80px;  /* Set fixed height for the product image */
+    width: 80px;   /* Set fixed width for the product image */
+    border-radius: 50%;  /* Make the image circular */
+    object-fit: cover;  /* Ensure the image fills the space while maintaining aspect ratio */
+  }
+
+  /* Title styling inside the card */
+  mat-card-title {
+    font-weight: bold;  /* Bold font for the title */
+    font-size: 1rem;  /* Font size for better readability */
+    color: #333;  /* Dark grey color for the title text */
+    min-height: 100px;  /* Minimum height to ensure consistency and alignment */
+  }
+
+  /* Subtitle styling inside the card */
+  mat-card-subtitle {
+    font-size: 1rem;  /* Font size for the subtitle */
+    color: #007bff;  /* Blue color for the subtitle to highlight the price */
+    font-weight: 500;  /* Semi-bold weight for the subtitle */
+  }
+
+  /* Card content section styling */
+  mat-card-content {
+    padding: 15px;  /* Padding around the content */
+  }
+
+  /* Product category styling */
+  .product-category {
+    font-size: 0.9rem;  /* Smaller font for the category */
+    color: #555;  /* Medium grey color for the category */
+    margin-bottom: 10px;  /* Add space below the category text */
+  }
+
+  /* Styling for the "View Details" button */
+  .view-details-button {
+    margin-top: 10px;  /* Space above the button */
+    background-color: #007bff;  /* Primary blue background color for the button */
+    color: white;  /* White text color */
+    border-radius: 4px;  /* Rounded corners for the button */
+    font-weight: bold;  /* Bold text to make the button stand out */
+    transition: background-color 0.3s ease;  /* Smooth background color transition */
+    
+    /* Hover effect to darken the button on mouse hover */
+    &:hover {
+      background-color: #0056b3;  /* Dark blue color when hovered */
+    }
+  }
+}
+
+
+.mat-card{
+  padding: 0 !important;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 0px !important;
+}

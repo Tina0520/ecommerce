@@ -1,0 +1,47 @@
+<!-- Modal Overlay: Displays when the modal is visible -->
+<div *ngIf="isModalVisible" class="product-modal-overlay">
+  
+  <!-- Modal Container: Contains the modal content -->
+  <div class="product-modal">
+    
+    <!-- Modal Header: Displays the product title and close button -->
+    <div class="modal-header">
+      <!-- Display product title dynamically if available -->
+      <h2>{{ product?.title || 'Product Title Unavailable' }}</h2>
+      
+      <!-- Close button to close the modal, triggers closeModal() function -->
+      <button mat-icon-button (click)="closeModal()">×</button>
+    </div>
+    
+    <!-- Modal Body: Displays product details -->
+    <div class="modal-body">
+      <!-- Product image, ensures fallback if no image is provided -->
+      <img 
+        [src]="product?.image" 
+        alt="{{ product?.title || 'Product' }}" 
+        class="product-image" 
+      />
+      
+      <!-- Product Price: Displays the price formatted as currency -->
+      <p class="product-price">
+        {{ product?.price ? (product?.price | currency) : 'Price Unavailable' }}
+      </p>
+      
+      <!-- Product Description: Displays the description -->
+      <p class="product-description">
+        {{ product?.description || 'No description available for this product.' }}
+      </p>
+      
+      <!-- Product Availability: Checks if the product is in stock and displays the status -->
+      <p class="product-availability">
+        Availability: {{ product?.availability ? "In Stock" : "Out of Stock" }}
+      </p>
+      
+      <!-- Error handling for missing or corrupted product data -->
+      <p *ngIf="isError" class="error-message">
+        <mat-icon>error</mat-icon>
+        <span>Product data could not be loaded. Please try again later.</span>
+      </p>
+    </div>
+  </div>
+</div>

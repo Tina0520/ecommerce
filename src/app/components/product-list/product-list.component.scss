@@ -1,0 +1,196 @@
+/* Error message styling */
+.error-message {
+  color: #d32f2f; /* Red color for error text */
+  font-size: 1.1rem; /* Slightly larger font for emphasis */
+  display: flex; /* Flexbox to align items horizontally */
+  align-items: center; /* Center the icon and text vertically */
+  gap: 10px; /* Space between the icon and text */
+  padding: 20px; /* Padding around the message */
+  background-color: #f8d7da; /* Light red background */
+  border-radius: 4px; /* Rounded corners for the error box */
+  margin: 20px; /* Space around the error box */
+}
+
+/* Loading message styling */
+.loading-message {
+  display: flex; /* Flexbox to align items horizontally */
+  align-items: center; /* Center the icon and text vertically */
+  gap: 10px; /* Space between the icon and text */
+  padding: 20px; /* Padding around the loading message */
+  background-color: #e0f7fa; /* Light blue background for loading state */
+  border-radius: 4px; /* Rounded corners for the loading box */
+  margin: 20px; /* Space around the loading box */
+  /* Add spinner or animation styles if needed in the future */
+}
+
+/* Grid layout for the product list */
+.product-list {
+  display: grid; /* Use grid layout for the product list */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Auto-fill grid with responsive columns */
+  gap: 20px; /* Gap between grid items (products) */
+  padding: 5px; /* Padding around the product list */
+  background-color: #f4f4f4; /* Light gray background */
+  /* Optionally, you can add error state styles if products fail to load */
+  /* e.g., .product-list.empty { background-color: #f0f0f0; } */
+}
+
+/* Style for each product container */
+.product-item-container {
+  display: flex; /* Flexbox to center product items */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  /* Consider adding border or shadow for better visual separation */
+}
+
+/* Filters section styling */
+.filters {
+  display: flex; /* Flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping of filter elements */
+  gap: 20px; /* Space between filter elements */
+  justify-content: space-between; /* Spread out the filters */
+  margin: 20px 0; /* Vertical space around the filters */
+  /* Add error handling styles for empty filter options, e.g., 
+     .filters.empty { display: none; } if no filter options available */
+}
+
+/* Individual filter group styling */
+.filter-group {
+  display: flex; /* Flexbox for each filter group */
+  flex-direction: column; /* Stack label and input vertically */
+  width: 30%; /* Set width of filter groups, could be 100% on mobile */
+}
+
+/* Label styling for filter group */
+.filter-group label {
+  font-size: 16px; /* Label font size */
+  font-weight: bold; /* Bold label text */
+  margin-bottom: 5px; /* Space below label */
+}
+
+/* Styling for dropdown (select) and range input */
+.filter-group select,
+.filter-group input[type="range"] {
+  padding: 10px; /* Padding inside input elements */
+  font-size: 14px; /* Font size for input text */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners for inputs */
+  /* Add hover and focus effects to improve UX */
+  transition: border 0.3s ease; /* Smooth transition on border color */
+}
+
+.filter-group select:focus,
+.filter-group input[type="range"]:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Styling for range input slider */
+.filter-group input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling on WebKit browsers */
+  width: 100%; /* Make the slider take up the full width */
+  height: 10px; /* Set height of the slider */
+  background: #ddd; /* Light gray background */
+  outline: none; /* Remove outline on focus */
+  border-radius: 5px; /* Rounded corners on the slider */
+  transition: background 0.3s ease; /* Smooth background change on hover/focus */
+}
+
+/* Styling for range input thumb (the draggable part) */
+.filter-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default appearance */
+  width: 20px; /* Set thumb width */
+  height: 20px; /* Set thumb height */
+  background: #4caf50; /* Green background for the thumb */
+  border-radius: 50%; /* Circular thumb */
+  cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+  transition: background 0.3s ease; /* Smooth background change on hover */
+}
+
+/* Hover effect on the range thumb */
+.filter-group input[type="range"]:hover::-webkit-slider-thumb {
+  background: #45a049; /* Darker green on hover */
+}
+
+/* Display the selected price range */
+.price-display {
+  margin-top: 10px; /* Space above the price display */
+  font-size: 14px; /* Font size for price display */
+  color: #555; /* Dark gray text color */
+  /* Optionally, add error handling for invalid range input, e.g., .price-display.invalid { color: #ff0000; } */
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Adjust filter group width for smaller screens */
+  .filter-group {
+    width: 100%; /* Filters will take up the full width on small screens */
+  }
+
+  /* Optional: Change product grid layout for smaller screens */
+  .product-list {
+    grid-template-columns: 1fr; /* One column layout for small screens */
+  }
+
+  /* Optional: Stack filter labels and inputs for better readability */
+  .filters {
+    flex-direction: column; /* Stack filter elements vertically on small screens */
+  }
+}
+
+.filter-icon-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 0px 8px 0px;
+}
+
+.filter-icon {
+  border: none;
+  background: transparent;
+}
+
+.filter-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Style for the Load More button */
+.load-more-btn {
+  background-color: #007bff; /* Blue background */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  transition: background-color 0.3s, transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
+}
+
+/* Hover effect for the button */
+.load-more-btn:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+/* Focus effect for accessibility */
+.load-more-btn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+}
+
+.load-more-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+
+.load-more-btn svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+  margin-right: 10px; /* Space between icon and text */
+  transition: transform 0.3s ease-in-out;
+}
